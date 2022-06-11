@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ValidateController } from './validate.controller';
+import { ValidateService } from './validate.service';
 import { configuration } from './config/configuration';
 import { validationSchema } from './config/validation';
 
@@ -15,7 +15,7 @@ import { validationSchema } from './config/validation';
       validationSchema,
     })
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [ValidateController],
+  providers: [ValidateService],
 })
 export class AppModule {}
