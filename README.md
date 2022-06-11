@@ -53,6 +53,7 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    // Environment could be either development or staging or uat or production.
    cp src/config/env/example.env src/config/env/environment.env
+   create development.env for local setup
    ```
 
 ### Usage:
@@ -64,6 +65,4 @@ To get a local copy up and running follow these simple example steps.
 npm install
 npm start
 
-```
 <p align="right">(<a href="#top">back to top</a>)</p>
-```
