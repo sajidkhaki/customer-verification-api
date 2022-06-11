@@ -58,24 +58,24 @@ To get a local copy up and running follow these simple example steps.
 
 ### Usage:
 
-```
-1. Start Project without docker (Make sure you have the latest Node 16.x version install)
-```
+1. Incase, to rebuild the image from scratch
+   ```sh
+   docker-compose up --build --force-recreate
+   ```
+2. Start Project without docker (Make sure you have the latest Node 16.x version install, however we do not recommend setting up this project without docker)
 
 ```sh
 npm install
 npm start
 ```
 
-```
-2. Goto http://localhost:3000/docs
-use the swagger document to perform operations like
-validate
-create
-update
-get
-getById
-delete
-```
+3. Goto http://localhost:3000/docs
+   use the swagger document to perform operations like
+   validate
+   create
+   update
+   get
+   getById
+   delete
 
 <p align="right">(<a href="#top">back to top</a>)</p>

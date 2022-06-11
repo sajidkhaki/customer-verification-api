@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  main:
+    container_name: validator
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 3000:3000
+      - 9229:9229
+    command: npm run start:debug
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    ports:
+      - '27017:27017'

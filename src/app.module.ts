@@ -15,7 +15,7 @@ import { UsersModule } from './users/users.module';
       load: [configuration],
       validationSchema,
     }),
-    MongooseModule.forRoot('mongodb://localhost/user'),
+    MongooseModule.forRoot('mongodb://mongo:27017/users'),
     UsersModule,
   ],
   controllers: [ValidateController],
