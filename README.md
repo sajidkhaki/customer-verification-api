@@ -67,4 +67,15 @@ npm install
 npm start
 ```
 
+```
+2. Goto http://localhost:3000/docs
+use the swagger document to perform operations like
+validate
+create
+update
+get
+getById
+delete
+```
+
 <p align="right">(<a href="#top">back to top</a>)</p>
