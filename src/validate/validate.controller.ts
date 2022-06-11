@@ -5,7 +5,7 @@ import { NumberDetails } from '@validate/validate.entity';
 import { ValidateService } from '@validate/validate.service';
 
 @Controller('/validate')
-@ApiTags('/Number-validate')
+@ApiTags('/contact/validate')
 export class ValidateController {
   constructor(private readonly validateService: ValidateService) {}
 
