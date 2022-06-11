@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query, ValidationPipe } from '@nestjs/common';
 import { ValidateService } from './validate.service';
 
 
@@ -7,7 +7,9 @@ export class ValidateController {
   constructor(private readonly validateService:ValidateService ) {}
 
   @Get()
-  getHello() {
-    return this.validateService.getHello();
+  public async validateNumber(
+   // @Query(new ValidationPipe({ transform: true })) query: ValidateNumberDTO,
+  ): Promise<any> {
+    //return await this.validateService.validate(query);
   }
 }
