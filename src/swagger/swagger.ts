@@ -1,5 +1,6 @@
 import { INestApplication } from "@nestjs/common";
 import { DocumentBuilder, OpenAPIObject, SwaggerModule } from "@nestjs/swagger";
+import { NumberDetails } from "src/validate.entity";
 import { SWAGGER_CONFIG } from "./swagger.config";
 
 /**
@@ -17,5 +18,8 @@ export function createDocument(app: INestApplication): OpenAPIObject {
   }
   const options = builder.build();
   return SwaggerModule.createDocument(app, options, {
+    extraModels: [
+      NumberDetails,
+    ]
   });
 }
