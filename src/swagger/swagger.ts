@@ -1,7 +1,10 @@
-import { INestApplication } from "@nestjs/common";
-import { DocumentBuilder, OpenAPIObject, SwaggerModule } from "@nestjs/swagger";
-import { NumberDetails } from "@validate/validate.entity";
-import { SWAGGER_CONFIG } from "./swagger.config";
+import { INestApplication } from '@nestjs/common';
+import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
+import { CreateUserDto } from '@users/dto/create-user.dto';
+import { UpdateUserDto } from '@users/dto/update-user.dto';
+import { UserEntity } from '@users/entity/user.entity';
+import { NumberDetails } from '@validate/validate.entity';
+import { SWAGGER_CONFIG } from './swagger.config';
 
 /**
  * Creates an OpenAPI document for an application, via swagger.
@@ -18,8 +21,6 @@ export function createDocument(app: INestApplication): OpenAPIObject {
   }
   const options = builder.build();
   return SwaggerModule.createDocument(app, options, {
-    extraModels: [
-      NumberDetails,
-    ]
+    extraModels: [NumberDetails, UserEntity, CreateUserDto, UpdateUserDto],
   });
 }

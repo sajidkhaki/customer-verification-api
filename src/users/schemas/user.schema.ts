@@ -21,7 +21,7 @@ export class User {
   customerName: string;
 
   @Prop()
-  customerNumber: number;
+  customerNumber: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

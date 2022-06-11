@@ -19,7 +19,8 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@swagger/*": ["src/swagger/*"],
-      "@validate/*": ["src/validate/*"],         
+      "@validate/*": ["src/validate/*"],
+      "@users/*": ["src/users/*"]
     }
   }
 }
