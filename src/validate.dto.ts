@@ -7,6 +7,7 @@ export class ValidateNumberDTO {
     description: 'The number to be validated',
     required: true,
     type: 'number',
+    example: '917006921375',
   })
   @IsInt()
   @Min(10)
