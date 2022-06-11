@@ -29,4 +29,8 @@ export class UsersRepository {
       new: true,
     });
   }
+
+  async delete(userFilterQuery: FilterQuery<User>): Promise<User> {
+    return this.userModel.findOneAndDelete(userFilterQuery);
+  }
 }

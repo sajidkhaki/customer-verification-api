@@ -1,5 +1,13 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
-import { ApiOkResponse, getSchemaPath } from '@nestjs/swagger';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
+import { ApiOkResponse, ApiTags, getSchemaPath } from '@nestjs/swagger';
 import { CreateUserDto } from '@users/dto/create-user.dto';
 import { UpdateUserDto } from '@users/dto/update-user.dto';
 
@@ -8,12 +16,13 @@ import { User } from '@users/schemas/user.schema';
 import { UsersService } from '@users/users.service';
 
 @Controller('/users')
+@ApiTags('/users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get(':userId')
   @ApiOkResponse({
-    description: 'Returns specific user based on Id',
+    description: 'Returns specific user based on userId',
     schema: { $ref: getSchemaPath(UserEntity) },
   })
   async getUser(@Param('userId') userId: string): Promise<User> {
@@ -22,14 +31,15 @@ export class UsersController {
 
   @Get()
   @ApiOkResponse({
-    description: 'Returns list of users',
+    description: 'returns list of users',
     schema: { $ref: getSchemaPath(UserEntity) },
   })
   async getUsers(): Promise<User[]> {
     return this.usersService.getUsers();
   }
+
   @ApiOkResponse({
-    description: 'Create a user',
+    description: 'creates a user',
     schema: { $ref: getSchemaPath(UserEntity) },
   })
   @Post()
@@ -38,7 +48,7 @@ export class UsersController {
   }
 
   @ApiOkResponse({
-    description: 'update a user',
+    description: 'updates a user',
     schema: { $ref: getSchemaPath(UserEntity) },
   })
   @Patch(':userId')
@@ -47,5 +57,13 @@ export class UsersController {
     @Body() updateUserDto: UpdateUserDto,
   ): Promise<User> {
     return this.usersService.updateUser(userId, updateUserDto);
+  }
+
+  @ApiOkResponse({
+    description: 'deletes a user',
+  })
+  @Delete(':userId')
+  async deleteUser(@Param('userId') userId: string): Promise<User> {
+    return this.usersService.deleteUser(userId);
   }
 }

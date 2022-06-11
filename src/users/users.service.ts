@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { User } from '@users/schemas/user.schema';
 import { UsersRepository } from '@users/users.repository';
@@ -10,11 +10,21 @@ export class UsersService {
   constructor(private readonly usersRepository: UsersRepository) {}
 
   async getUserById(userId: string): Promise<User> {
-    return this.usersRepository.findOne({ userId });
+    let found = await this.usersRepository.findOne({ userId });
+    if (found) {
+      return found;
+    } else {
+      throw new NotFoundException();
+    }
   }
 
   async getUsers(): Promise<User[]> {
-    return this.usersRepository.find({});
+    let found = await this.usersRepository.find({});
+    if (found) {
+      return found;
+    } else {
+      throw new NotFoundException();
+    }
   }
 
   async createUser(data: any): Promise<User> {
@@ -25,7 +35,7 @@ export class UsersService {
       customerName,
       customerNumber,
     } = data;
-    return this.usersRepository.create({
+    return await this.usersRepository.create({
       userId: uuidv4(),
       countryCode,
       countryName,
@@ -36,6 +46,23 @@ export class UsersService {
   }
 
   async updateUser(userId: string, userUpdates: UpdateUserDto): Promise<User> {
-    return this.usersRepository.findOneAndUpdate({ userId }, userUpdates);
+    let found = await this.usersRepository.findOneAndUpdate(
+      { userId },
+      userUpdates,
+    );
+    if (found) {
+      return found;
+    } else {
+      throw new NotFoundException();
+    }
+  }
+
+  async deleteUser(userId: string): Promise<any> {
+    let response = await this.usersRepository.delete({ userId });
+    if (response) {
+      await this.usersRepository.delete({ userId });
+    } else {
+      throw new NotFoundException();
+    }
   }
 }
