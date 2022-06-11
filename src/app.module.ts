@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { ValidateController } from './validate.controller';
-import { ValidateService } from './validate.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { ValidateController } from '@validate/validate.controller';
+import { ValidateService } from '@validate/validate.service';
 import { configuration } from './config/configuration';
 import { validationSchema } from './config/validation';
-
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -13,7 +14,9 @@ import { validationSchema } from './config/validation';
       isGlobal: true,
       load: [configuration],
       validationSchema,
-    })
+    }),
+    MongooseModule.forRoot('mongodb://localhost/user'),
+    UsersModule,
   ],
   controllers: [ValidateController],
   providers: [ValidateService],

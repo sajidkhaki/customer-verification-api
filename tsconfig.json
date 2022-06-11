@@ -18,7 +18,8 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@swagger/*": ["src/swagger/*"],     
+      "@swagger/*": ["src/swagger/*"],
+      "@validate/*": ["src/validate/*"],         
     }
   }
 }

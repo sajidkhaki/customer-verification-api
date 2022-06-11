@@ -1,7 +1,7 @@
 import {HttpException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import axios from 'axios';
-import { Params } from './validate.interface';
+import { Params } from '@validate/validate.interface';
 
 @Injectable()
 export class ValidateService {

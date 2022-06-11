@@ -1,8 +1,8 @@
 import { Controller, Get, Query, ValidationPipe } from '@nestjs/common';
 import { ApiOkResponse, getSchemaPath } from '@nestjs/swagger';
-import { ValidateNumberDTO } from './validate.dto';
-import { NumberDetails } from './validate.entity';
-import { ValidateService } from './validate.service';
+import { ValidateNumberDTO } from '@validate/validate.dto';
+import { NumberDetails } from '@validate/validate.entity';
+import { ValidateService } from '@validate/validate.service';
 
 
 @Controller('/validate')

@@ -1,6 +1,6 @@
 import { INestApplication } from "@nestjs/common";
 import { DocumentBuilder, OpenAPIObject, SwaggerModule } from "@nestjs/swagger";
-import { NumberDetails } from "src/validate.entity";
+import { NumberDetails } from "@validate/validate.entity";
 import { SWAGGER_CONFIG } from "./swagger.config";
 
 /**
