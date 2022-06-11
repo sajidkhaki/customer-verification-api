@@ -62,7 +62,9 @@ To get a local copy up and running follow these simple example steps.
 1. Start Project without docker (Make sure you have the latest Node 16.x version install)
 ```
 
+```sh
 npm install
 npm start
+```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
