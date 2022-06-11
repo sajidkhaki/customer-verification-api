@@ -1,4 +1,5 @@
 import { Controller, Get, Query, ValidationPipe } from '@nestjs/common';
+import { ValidateNumberDTO } from './validate.dto';
 import { ValidateService } from './validate.service';
 
 
@@ -8,8 +9,8 @@ export class ValidateController {
 
   @Get()
   public async validateNumber(
-   // @Query(new ValidationPipe({ transform: true })) query: ValidateNumberDTO,
+    @Query(new ValidationPipe({ transform: true })) query: ValidateNumberDTO,
   ): Promise<any> {
-    //return await this.validateService.validate(query);
+    return await this.validateService.validate(query);
   }
 }
